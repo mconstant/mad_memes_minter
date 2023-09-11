@@ -8,8 +8,8 @@ async function mintNFT() {
   const client = new SigningCosmWasmClient(rpcUrl, yourPrivateKey);
 
   // Define contract address and sender address
-  const contractAddress = "your-contract-address";
-  const senderAddress = "your-sender-address";
+  const contractAddress = process.env.CONTRACT_ADDRESS;
+  const senderAddress = process.env.SENDER_ADDRESS;
 
   // Mint NFT parameters
   const mintMsg = {
