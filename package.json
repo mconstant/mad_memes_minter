@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0",
     "secretjs": "^1.9.3"
   }
 }
