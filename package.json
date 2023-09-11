@@ -1,0 +1,14 @@
+{
+  "name": "mad_memes_minter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "minter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "secretjs": "^1.9.3"
+  }
+}
