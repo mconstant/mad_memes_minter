@@ -2,7 +2,7 @@ const { SigningCosmWasmClient, Secp256k1Pen, coins } = require("secretjs");
 
 async function mintNFT() {
   // Your secret network node URL
-  const rpcUrl = "https://your-secret-network-rpc-url.com";
+  const rpcUrl = process.env.RPC_URL || "https://api.secrettestnet.io"; // Default to a testnet URL if not set
 
   // Create a client to interact with the network
   const client = new SigningCosmWasmClient(rpcUrl, yourPrivateKey);
