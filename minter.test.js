@@ -5,6 +5,7 @@ const expect = chai.expect;
 // Import the minter function (replace with your actual minter function)
 const { mintNFT } = require('./minter');
 
+
 // Describe a test suite
 describe('Minter Tests', () => {
   it('should mint an NFT successfully', () => {

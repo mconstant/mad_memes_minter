@@ -4,8 +4,10 @@ async function mintNFT() {
   // Your secret network node URL
   const rpcUrl = process.env.RPC_URL || "https://api.secrettestnet.io"; // Default to a testnet URL if not set
 
+  const pKey = process.env.PKEY
+
   // Create a client to interact with the network
-  const client = new SigningCosmWasmClient(rpcUrl, yourPrivateKey);
+  const client = new SigningCosmWasmClient(rpcUrl, pKey);
 
   // Define contract address and sender address
   const contractAddress = process.env.CONTRACT_ADDRESS;
@@ -31,4 +33,4 @@ async function mintNFT() {
   }
 }
 
-mintNFT();
+module.exports.mintNFT = mintNFT;
