@@ -11,7 +11,7 @@ describe('Minter Tests', () => {
   it('should mint an NFT successfully', () => {
     // Your test code here
     // Call the mintNFT function and assert the expected outcome
-    const result = mintNFT(/* Provide necessary parameters */);
+    const result = mintNFT();
 
     // Add assertions to check if the result is as expected
     expect(result).to.equal(/* Expected result */);

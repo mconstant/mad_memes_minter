@@ -1,4 +1,5 @@
-const { SigningCosmWasmClient, Secp256k1Pen, coins } = require("secretjs");
+const { SecretNetworkClient, Secp256k1Pen, coins } = require("secretjs");
+require('dotenv').config();
 
 async function mintNFT() {
   // Your secret network node URL
@@ -7,7 +8,7 @@ async function mintNFT() {
   const pKey = process.env.PKEY
 
   // Create a client to interact with the network
-  const client = new SigningCosmWasmClient(rpcUrl, pKey);
+  const client = new SecretNetworkClient({url: process.env.SECRET_LCD_URL});
 
   // Define contract address and sender address
   const contractAddress = process.env.CONTRACT_ADDRESS;
