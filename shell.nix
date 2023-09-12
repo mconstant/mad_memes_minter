@@ -6,5 +6,6 @@ pkgs.mkShell {
     pkgs.nodejs
     pkgs.gnumake
     pkgs.rustup
+    pkgs.clang_8
   ];
 }

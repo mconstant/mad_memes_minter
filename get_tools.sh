@@ -12,3 +12,7 @@ chmod +x secretcli-Linux
 sudo mv secretcli-Linux /usr/local/bin/secretcli
 . ~/.nix-profile/etc/profile.d/nix.sh
 nix-shell
+rustup default stable
+rustup target add wasm32-unknown-unknown
+rustup install nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
