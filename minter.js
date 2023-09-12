@@ -19,24 +19,49 @@ async function mintNFT() {
   });
 
 
-  // Define contract address and sender address
-  const contractAddress = process.env.CONTRACT_ADDRESS;
-  const senderAddress = process.env.SENDER_ADDRESS;
+  const addMinterMsg = new MsgExecuteContract({
+    sender: accounts[0].address,
+    contract_address: contractAddress,
+    // codeHash, // Test MsgExecuteContract without codeHash
+    msg: { add_minters: { minters: [accounts[0].address] } },
+    sentFunds: [],
+  });
 
-  // Mint NFT parameters
-  const mintMsg = {
-    mint_nft: {
-      token_id: "unique-token-id",
-      owner: senderAddress,
-      // Add other metadata and parameters as needed by your contract
+  const mintMsg = new MsgExecuteContract({
+    sender: accounts[0].address,
+    contract_address: contractAddress,
+    code_hash: codeHash,
+    msg: {
+      mint_nft: {
+        token_id: "1",
+        owner: accounts[0].address,
+        public_metadata: {
+          extension: {
+            image:
+              "https://scrt.network/secretnetwork-logo-secondary-black.png",
+            name: "secretnetwork-logo-secondary-black",
+          },
+        },
+        private_metadata: {
+          extension: {
+            image:
+              "https://scrt.network/secretnetwork-logo-primary-white.png",
+            name: "secretnetwork-logo-primary-white",
+          },
+        },
+      },
     },
-  };
+    sentFunds: [],
+  });
+
 
   try {
     // Send a transaction to mint the NFT
-    const result = await secretjs.execute(contractAddress, mintMsg, coins(1000000, "uscrt")); // Adjust the amount and denomination as needed
+    const tx = await secretjs.tx.broadcast([addMinterMsg, mintMsg], {
+      gasLimit: 5_000_000,
+    });
 
-    console.log("Transaction Hash:", result.transactionHash);
+    console.log("Transaction Hash:", tx.transactionHash);
     console.log("Minting NFT successful!");
   } catch (error) {
     console.error("Error minting NFT:", error);
