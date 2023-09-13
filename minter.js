@@ -3,7 +3,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 const contract_wasm = fs.readFileSync(
-  "./snip721/snip721_reference_impl.wasm.gz"
+  "./snip721/contract.wasm.gz"
 );
 
 async function mintNFT() {
