@@ -23,11 +23,6 @@ async function mintNFT() {
     chainId: process.env.SECRET_CHAIN_ID,
   });
 
-  let codeId = 934;
-  let contractCodeHash =
-    "a448595e3a46197776ff966c980d0de770c052c7f1ced1577027906835126bd5";
-  let contractAddress = "secret1xjvnf8fru5xe2x73g6mdfef9zcj00umhvvzqsp";
-
   let upload_contract = async () => {
     let tx = await secretjs.tx.compute.storeCode(
       {
